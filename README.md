@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 # NeuraLib
-AI-Driven Reading &amp; Knowledge Platform
-=======
 # 📚 NeuraLib – AI-Driven Reading Platform
 
 An intelligent reading companion that delivers personalized book recommendations using AI. Built with Django REST Framework.
@@ -49,7 +44,6 @@ docker-compose up --build
 - [ ] User module
 - [ ] Core project setup
 - [ ] User module
->>>>>>> 1d03474 (README file changed)
 - [ ] Book management
 - [ ] AI recommender system
 - [ ] Notifications & testing
@@ -57,9 +51,7 @@ docker-compose up --build
 ## 👨‍💻 Author
 
 Thompson Khorazmiy  
-<<<<<<< HEAD
-Backend Developer | Pentester | AI Enthusiast
-=======
+
 Backend Developer | AI Enthusiast
 
 GitHub: [@ThompsonShell](https://github.com/ThompsonShell)
@@ -69,4 +61,3 @@ GitHub: [@ThompsonShell](https://github.com/ThompsonShell)
 ⭐️ Star this repo if you find it useful!
 
 GitHub (https://github.com/ThompsonShell)
-<<<<<<< HEAD
