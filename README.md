@@ -1,4 +1,9 @@
-README.md
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+# NeuraLib
+AI-Driven Reading &amp; Knowledge Platform
+=======
 # 📚 NeuraLib – AI-Driven Reading Platform
 
 An intelligent reading companion that delivers personalized book recommendations using AI. Built with Django REST Framework.
@@ -20,18 +25,6 @@ An intelligent reading companion that delivers personalized book recommendations
 - Docker
 - JWT Authentication
 
-## 📁 Project Structure
-
-NeuraLib/
-├── config/                 # Project settings
-├── users/                  # User authentication & profiles
-├── books/                  # Book management (coming soon)
-├── recommendations/        # AI recommendation engine (coming soon)
-├── notifications/          # Notification system (coming soon)
-├── manage.py
-├── requirements.txt
-└── docker-compose.yml
-
 ## 🚀 Quick Start
 
 # Clone repository
@@ -52,8 +45,11 @@ docker-compose up --build
 
 ## 📋 Roadmap
 
-- [x] Core project setup
-- [x] User module
+- [ ] Core project setup
+- [ ] User module
+- [ ] Core project setup
+- [ ] User module
+>>>>>>> 1d03474 (README file changed)
 - [ ] Book management
 - [ ] AI recommender system
 - [ ] Notifications & testing
@@ -61,7 +57,10 @@ docker-compose up --build
 ## 👨‍💻 Author
 
 Thompson Khorazmiy  
+<<<<<<< HEAD
 Backend Developer | Pentester | AI Enthusiast
+=======
+Backend Developer | AI Enthusiast
 
 GitHub: [@ThompsonShell](https://github.com/ThompsonShell)
 
@@ -70,5 +69,4 @@ GitHub: [@ThompsonShell](https://github.com/ThompsonShell)
 ⭐️ Star this repo if you find it useful!
 
 GitHub (https://github.com/ThompsonShell)
-ThompsonShell - Overview
-ThompsonShell has 4 repositories available. Follow their code on GitHub.
+<<<<<<< HEAD
