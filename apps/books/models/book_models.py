@@ -19,7 +19,7 @@ class BookGenre(models.TextChoices):
 
 
 class Book(AbstarBaseModel):
-    title = models.CharField(min_length=3, max_length=250)
+    title = models.CharField(max_length=250)
     slug = models.SlugField(
         max_length=250,
         editable=False
@@ -43,7 +43,7 @@ class Book(AbstarBaseModel):
             raise ValidationError("A book with this name already exists !")
 
     def __str__(self):
-        return f"name {self.title} author {self.author} published time{self.published_at}"
+        return f"name {self.title} published time{self.published_at}"
 
     def delete(self, *args, **kwargs):
         super().delete(*args, **kwargs)
