@@ -10,12 +10,16 @@ class AbstarBaseModel(models.Model):
     created_by = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=SET_NULL,
+        null=True,
+        blank=True,
         related_name="+",
         editable=False
     )
     updated_by = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=SET_NULL,
+        null=True,
+        blank=True,
         related_name="+",
         editable=False
     )
