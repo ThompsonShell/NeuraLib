@@ -36,8 +36,6 @@ class OrderBook(AbstarBaseModel):
     order = models.ForeignKey(
         to=Order,
         on_delete=models.CASCADE,
-        # related_name = 'order_books'
-
     )
     book = models.ForeignKey(
         to=Book,

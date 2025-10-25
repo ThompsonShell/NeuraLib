@@ -1,6 +1,5 @@
 from django.conf import settings
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
@@ -15,9 +14,10 @@ REST_FRAMEWORK = {
     ),
 }
 
+if settings.DEBUG:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = list(REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'])
 
-if settings.Debug:
-    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] += [
-        'rest_framework.authentication.SessionAuthentication',
+    REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] = list(REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'])
+    REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] += [
         'rest_framework.authentication.BasicAuthentication',
     ]
