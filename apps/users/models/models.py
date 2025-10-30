@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import IntegerChoices
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
+from django.utils.timezone import now
 
 
 class UserManager(BaseUserManager):
@@ -42,9 +43,15 @@ class CustomUser(AbstractUser):
         PERSONAL = 1
         COMMUNITY = 2
 
+    username = models.CharField(max_length=50)
+    photo = models.ImageField(upload_to="users/%Y/%m/%d", blank=True, null=True)
+    last_updated = models.DateTimeField(auto_now=True)
+    role = models.IntegerField(choices=Role, default=3)
+    date_joined = models.DateTimeField(default=now)
 
-        username = models.CharField(max_length=50)
-        photo = models.ImageField(upload_to="users/%Y/%m/%d", blank=True, null=True)
-        # role = models.IntegerField(choices=Role, default=3)
 
+objects = UserManager()
+USERNAME_FIELD = 'username'
+REQUIRED_FIELDS = ['username', 'email']
 
+UserModel = CustomUser
