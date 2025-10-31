@@ -44,6 +44,7 @@ class CustomUser(AbstractUser):
         COMMUNITY = 2
 
     username = models.CharField(max_length=50)
+    email = models.EmailField()
     photo = models.ImageField(upload_to="users/%Y/%m/%d", blank=True, null=True)
     last_updated = models.DateTimeField(auto_now=True)
     role = models.IntegerField(choices=Role, default=3)
