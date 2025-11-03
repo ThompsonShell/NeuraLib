@@ -43,12 +43,17 @@ class CustomUser(AbstractUser):
         PERSONAL = 1
         COMMUNITY = 2
 
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50, unique=True)
     email = models.EmailField()
     photo = models.ImageField(upload_to="users/%Y/%m/%d", blank=True, null=True)
     last_updated = models.DateTimeField(auto_now=True)
     role = models.IntegerField(choices=Role, default=3)
     date_joined = models.DateTimeField(default=now)
+
+
+
+    class Meta:
+        verbose_name_plural = 'CustomUser'
 
 
 objects = UserManager()

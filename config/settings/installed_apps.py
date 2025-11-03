@@ -16,6 +16,7 @@ PROJECT_APPS = [
     'apps.users',
     'apps.tests',
     'apps.utils',
+
 ]
 
 THIRD_PARTY = [
@@ -26,6 +27,7 @@ THIRD_PARTY = [
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 
 
