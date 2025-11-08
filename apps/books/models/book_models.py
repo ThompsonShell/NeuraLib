@@ -3,9 +3,10 @@ from django.core.validators import MinValueValidator, MaxValueValidator, FileExt
 from django.db import models, transaction
 from django.utils.text import slugify
 from rest_framework.exceptions import ValidationError
+from django.conf import settings
 
-from apps.utils.models import AbstarBaseModel
-
+from apps.utils.models import AbstractBaseModel
+from apps.users.models import CustomUser
 
 class BookGenre(models.TextChoices):
     FICTION = "fiction", "Fiction"
@@ -18,21 +19,61 @@ class BookGenre(models.TextChoices):
     HISTORY = "history", "History"
 
 
-class Book(AbstarBaseModel):
+class Book(AbstractBaseModel):
     title = models.CharField(max_length=250)
+    
     slug = models.SlugField(
         max_length=250,
         editable=False
     )
-    # author = models.ForeignKey()
+    
+    author = models.ForeignKey(
+        to=CustomUser,
+        on_delete=models.PROTECT,
+        related_name='books',
+        limit_choices_to={'role': CustomUser.Role.AUTHOR}
+        )
+    
     pages = models.PositiveIntegerField(null=True, blank=True)
-    pdf = models.FileField(upload_to='books/pdf', validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
-    audio = models.FileField(upload_to='books/audio', validators=[FileExtensionValidator(allowed_extensions=['mp3'])], null=True, blank=True)
+    
+    pdf = models.FileField(
+        upload_to='books/pdf',
+        null=True,
+        blank=True,
+        validators=[FileExtensionValidator(allowed_extensions=['pdf'])],
+        )
+    
+    audio = models.FileField(
+        upload_to='books/audio',
+        validators=[FileExtensionValidator(allowed_extensions=['mp3'])],
+        null=True, 
+        blank=True
+        )
+    
     published_at = models.DateField(help_text="Original publication date of the book")
-    description = models.TextField(max_length=10_000, blank=True, help_text="Book summary or description")
-    rating = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
-    genre = models.CharField(choices=BookGenre.choices, default="Fiction", max_length=30)
-    is_available = models.BooleanField(default=True, help_text="Is the book available for reading")
+    
+    description = models.TextField(
+        max_length=10_000,
+        blank=True,
+        help_text="Book summary or description"
+        )
+    
+    rating = models.PositiveSmallIntegerField(
+        default=0,
+        validators=[MinValueValidator(0),
+                    MaxValueValidator(10)]
+        )
+    
+    genre = models.CharField(
+        choices=BookGenre.choices, 
+        default="Fiction",
+        max_length=30
+        )
+    
+    is_available = models.BooleanField(
+        default=True,
+        help_text="Is the book available for reading"
+        )
 
 
     def clean(self):
