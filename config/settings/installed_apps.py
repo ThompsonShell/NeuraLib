@@ -20,6 +20,7 @@ PROJECT_APPS = [
 ]
 
 THIRD_PARTY = [
+    'corseheaders',
     'django_filters',
     'rest_framework',
     'drf_yasg',
