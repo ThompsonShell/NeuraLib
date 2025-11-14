@@ -20,10 +20,12 @@ PROJECT_APPS = [
 ]
 
 THIRD_PARTY = [
-    'corseheaders',
+    'corsheaders',
     'django_filters',
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_yasg',
+    # 'rest_framework_simplejwt.token_blacklist',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY

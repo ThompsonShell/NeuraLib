@@ -1,18 +1,34 @@
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'testdb',
+#         'USER': 'acer',
+#         'PASSWORD': '1',
+#         'PORT': '5432',
+#         'HOST': 'localhost'
+#     }
+
+# }
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'library',
-        'USER': 'acer',
-        'PASSWORD': '1',
-        'PORT': '5432',
-        'HOST': 'localhost'
+        'NAME': os.getenv('DB_NAME'),  
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
-
 }
+    
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
