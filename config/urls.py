@@ -49,6 +49,10 @@ urlpatterns = [
     path('api/v1/books/', include('apps.articles.urls')),
 
 
+    # ARTICLE URLS
+    path('api/v1/auth/', include('apps.authentication.urls')),
+    
+    
     # RESTFRAMEWORK
     path('api-auth/', include('rest_framework.urls'))
     
