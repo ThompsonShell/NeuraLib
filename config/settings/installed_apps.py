@@ -16,6 +16,7 @@ PROJECT_APPS = [
     'apps.users',
     'apps.tests',
     'apps.utils',
+    'apps.authentication',
 
 ]
 
@@ -25,6 +26,7 @@ THIRD_PARTY = [
     'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
+    'debug_toolbar'
     # 'rest_framework_simplejwt.token_blacklist',
 ]
 

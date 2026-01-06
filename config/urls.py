@@ -34,19 +34,19 @@ urlpatterns = [
 
 
     # ORDER URLS
-    path('api/v1/books/', include('apps.orders.urls')),
+    path('api/v1/orders/', include('apps.orders.urls')),
 
 
     # USER URLS
-    path('api/v1/books/', include('apps.users.urls')),
+    path('api/v1/users/', include('apps.users.urls')),
 
 
     # GENERAL URLS
-    path('api/v1/books/', include('apps.general.urls')),
+    path('api/v1/general/', include('apps.general.urls')),
 
 
     # ARTICLE URLS
-    path('api/v1/books/', include('apps.articles.urls')),
+    path('api/v1/articles/', include('apps.articles.urls')),
 
 
     # ARTICLE URLS
@@ -54,7 +54,11 @@ urlpatterns = [
     
     
     # RESTFRAMEWORK
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    
+    
+    # DEBUG TOOLBAR
+    path("__debug__/", include("debug_toolbar.urls")),
     
     # #JWT
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

@@ -1,13 +1,13 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from rest_framework.exceptions import ValidationError
-from rest_framework.generics import RetrieveUpdateAPIView
+from rest_framework.generics import RetrieveUpdateAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from apps.users.models import CustomUser
 from apps.authentication.serializers.user_serializer import UserSerializer
+from apps.authentication.serializers.login_serializer import LoginSerializer
 from rest_framework.authentication import BaseAuthentication
 
 
@@ -44,3 +44,8 @@ class LogoutAPIView(APIView):
     
     
 
+class UserLoginAPIView(CreateAPIView):
+    serializer_class = LoginSerializer
+    
+    def perform_create(self, serializer):
+        pass
