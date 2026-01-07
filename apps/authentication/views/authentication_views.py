@@ -8,7 +8,6 @@ from rest_framework.permissions import IsAuthenticated
 from apps.users.models import CustomUser
 from apps.authentication.serializers.user_serializer import UserSerializer
 from apps.authentication.serializers.login_serializer import LoginSerializer
-from rest_framework.authentication import BaseAuthentication
 
 
 class LoginAPIView(APIView):
